@@ -49,15 +49,47 @@ function Tamagotchi ( hungry, sleepy, bored, age, ) {
     this.sleepy = sleepy,
     this.bored = bored
     this.age =  age
-    this.printStats = function(){ 
 
-console.log(this.hungry);
-console.log(this.sleepy);
-console.log(this.bored);
-console.log(this.age);
+
+    this.Feed = function (){
+        if(hungry === true){
+            console.log("That was yummy!");
+            this.sleepy = true;
+        }
+        else{
+            console.log("No thanks! I'm full.");
+        }
+    };
+    
+    this.Sleep = function (){
+        if(this.sleepy === true){
+            console.log("Zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+            this.sleepy = false;
+        }
+        else{
+            console.log("No way! I'm not tired! I'm not tired.")
+            this.bored = true;
+            increaseAge += 1;
+        }
+    };
+    
+    this.Play = function(){
+        if(this.bored == true){
+            console.log("Yay! Let's Play!");
+            this.bored = false;
+            this.hungry = true;
+        }
+        else{
+            console.log("Not right now. Later?")
+        }
+    };
+    
+    this.increaseAge = function(){
+        console.log("Happy Birthday to me! I am " + this.age + "old.");
+    };
+    
+    
+}
+
 
     
-    }};
-
-    
-    Tamagotchi.printStats();
