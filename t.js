@@ -2,7 +2,7 @@
 
 // * Remember Tamagotchis? They were those little toys that contained "digital pets" which you could feed, pet, play with, and care for. Kind of like Furbies but a whole lot less terrifying. Over the next thirty minutes or so, you are going to create your own basic Tamagotchi clone using constructors.
 
-// * Create a constructor called "DigitalPal" which will create four properties and four methods...
+// * Create a constructor called "Tomagotchi" which will create four properties and four methods...
 
 //   * The first property is "hungry" and it initially starts out as false
 
@@ -18,9 +18,9 @@
 
 // * The third method is "play()" - If bored is true, print "Yay! Let's play!", set bored to false, and then set hungry to true. If bored is false, print "Not right now. Later?"
 
-// * The fourth method is "increaseAge()" - This method is called by the sleep() method when the DigitalPal goes to sleep and increases the DigitalPal's age by one while also printing "Happy Birthday to me! I am "+age+" old!"
+// * The fourth method is "increaseAge()" - This method is called by the sleep() method when the Tomagotchi goes to sleep and increases the Tomagotchi's age by one while also printing "Happy Birthday to me! I am "+age+" old!"
 
-// * Create a variable named "dog" that is set to a new DigitalPal before adding the following unique properties/methods to it...
+// * Create a variable named "dog" that is set to a new Tomagotchi before adding the following unique properties/methods to it...
 
 //   * outside - Initially set to false
 
@@ -30,7 +30,7 @@
 
 //   * goInside() - If outside is true, prints "Do we have to? Fine..." and sets outside to false. If outside is false, prints "I'm already inside..."
 
-// * Make a second variable named "cat" that is set to a new DigitalPal and add the following methods to it:
+// * Make a second variable named "cat" that is set to a new Tomagotchi and add the following methods to it:
 
 //   * houseCondition - Initially set to 100... But not for long...
 
@@ -44,7 +44,7 @@
 
 // * BONUS: Make it so your Tamagotchis run off of user-input from the command line. It may sound easy at first, but this can actually be quite challenging. We will be going over this in more detail during the next class. -->
 
-function Tamagotchi ( hungry, sleepy, bored, age, ) {
+function Tomagotchi ( hungry, sleepy, bored, age, ) {
     this.hungry = hungry,
     this.sleepy = sleepy,
     this.bored = bored
@@ -89,6 +89,47 @@ function Tamagotchi ( hungry, sleepy, bored, age, ) {
     };
     
     
+}
+
+let dog = new Tomagotchi();
+dog.outside = false;
+dog.bark = function() {
+    console.log("Woof Woof");
+}
+
+dog.bark();
+dog.goOutside = function() {
+    if(this.outside === false) {
+        console.log("Yay! I love the outdoors!");
+        this.outside = true;
+        this.bark();
+    }
+}
+dog.goInside = function() {
+    if(this.outside === true) {
+        console.log("Do we have to? Fine...");
+        this.outside = false;
+    }
+    else {
+        console.log("I'm already inside");
+    }
+}
+let cat = new Tomagotchi();
+cat.houseCondition = 100;
+cat.meow = function() {
+    console.log("Meow! Meow!");
+}
+cat.destroyFurniture = function() {
+    if(this.houseCondition > 0) {
+        this.houseCondition -= 10;
+        console.log("MUAHAHAHAHA! TAKE THAT FURNITURE!");
+        this.bored = false;
+        this.sleepy = true;
+    }
+}
+cat.buyNewfurniture = function() {
+    this.houseCondition += 50;
+    console.log("Are you sure?");
 }
 
 
